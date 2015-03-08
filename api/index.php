@@ -141,7 +141,10 @@ function query_api($term, $location, $gps = array()) {
 /**
  * User input is handled here 
  */
-header("Content-type: text/plain");
+header("Content-type: application/json; charset=utf-8'");
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');  
+
 $longopts  = array(
     "term::",
     "location::",
