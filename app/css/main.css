@@ -120,6 +120,10 @@ border-color: transparent;
 background-color: #dadada;
 }
 
+.navbar-brand {
+	position: absolute;
+	top: 0px;
+}
 
 .navbar {
 	height: 70px;
