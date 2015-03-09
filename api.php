@@ -130,6 +130,7 @@ function query_api($term, $location, $gps = array()) {
 		$temp['category'] = $business->categories[0][0];
 		$temp['rating'] = $business->rating;
 		$temp['image'] = $business->image_url;
+		$temp['image'] = str_replace("http://", "https://", $temp['image']);		
 		$temp['image'] = str_replace("ms.jpg", "o.jpg", $temp['image']);
 		$temp['gps'] = $business->location->coordinate;
 		$return[] = $temp;
