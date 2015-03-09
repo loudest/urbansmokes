@@ -2,7 +2,7 @@
 
 Discovery app that allows you to find vaporizers, cigar, and hooka places.
 
-![Screenshot](imgs/screenshot.png)
+![Screenshot](content/img/screenshot.png)
 
 Our app is live at [Heroku](https://urbansmokes.co).
 
