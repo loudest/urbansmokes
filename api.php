@@ -25,10 +25,10 @@ require_once('lib/geonames.php');
 // Set your OAuth credentials here  
 // These credentials can be obtained from the 'Manage API Access' page in the
 // developers documentation (http://www.yelp.com/developers)
-$CONSUMER_KEY = 'N5XpFhEUpl2yXl5AcY-eXw';
-$CONSUMER_SECRET = 'occM9Qti7PezkZTvppXjBF3NiTs';
-$TOKEN = '4eE40hR2k_g8BhsvAA3KLm_ML2i0mutw';
-$TOKEN_SECRET = '_MUH_LhDTqwTNnGCWAGkgx7ZEzQ';
+$CONSUMER_KEY = '';
+$CONSUMER_SECRET = '';
+$TOKEN = '';
+$TOKEN_SECRET = '';
 
 
 $API_HOST = 'api.yelp.com';
