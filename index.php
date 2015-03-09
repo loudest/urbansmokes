@@ -1,3 +1,3 @@
 <?php 
-	header('Location: https://www.urbansmokes.co/app/');
+	include_once('index.html');
 ?>

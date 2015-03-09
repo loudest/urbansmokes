@@ -1,34 +1,10 @@
 
 
-var coordLat; // = position.coords.latitude;
-var coordLong; // = position.coords.longitude;
-
 var firstPlace;
 var secondPlace;
 var thirdPlace;
 
-if(navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(found_location, no_location);
-} else {
-  no_location();
-}
-
-  function found_location(position) {
-    //string = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-    //set( "loading", string );
-    coordLat = position.coords.latitude;
-    coordLong = position.coords.longitude;
-    //alert(coordLat + " " + coordLong);
-  }
-
-  function no_location() {
-    string = "No location service"; 
-    //set( "loading", string );
-
-  }
-
 var mapMarkers = [];
-
 
   // Name/title, category, image, rating, lat/long
 
@@ -243,31 +219,39 @@ $("#sortRating").click(function(){
 
 // "My wife is a big cigar smoker and has trouble finding places to smoke"
 
+var coordLat = 47.6097; // = position.coords.latitude
+var coordLong = -122.3331; // = position.coords.longitude;
 
+function found_location(position) {
+	coordLat = position.coords.latitude;
+	coordLong = position.coords.longitude;
+}
 
-
+function no_location() {
+}
 
 function initialize() {
 
-  var markers = [];
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
-    //mapTypeId: google.maps.MapTypeId.ROADMAP, zoom: 14
-    center: {lat: 47.6278645, lng: -122.3158121},
-    zoom: 12
-  });
+	if(navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(found_location, no_location);
+	} else {
+		no_location();
+	}
+
+	var markers = [];
+	var map = new google.maps.Map(document.getElementById('map-canvas'), {
+		//mapTypeId: google.maps.MapTypeId.ROADMAP, zoom: 14
+		center: {lat: coordLat, lng: coordLong},
+		zoom: 12
+	});
 
   infowindow = new google.maps.InfoWindow();
-
-  
 
   // Create the search box and link it to the UI element.
   var input = /** @type {HTMLInputElement} */(
       document.getElementById('pac-input'));
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-  //var jsonURL = "https://www.urbansmokes.co/api/?lat=" + ABC + "&long=" + XYZ;
-
-  var jsonURL = "https://www.urbansmokes.co/api/?lat=47.6097&long=-122.3331";
+  var jsonURL = "https://www.urbansmokes.co/api.php?lat="+coordLat+"&long="+coordLong;
 
 
   $.get(jsonURL, function(data){
@@ -291,7 +275,6 @@ function initialize() {
   // current map's viewport.
   google.maps.event.addListener(map, 'bounds_changed', function() {
     var bounds = map.getBounds();
-    //searchBox.setBounds(bounds);
   });
 }
 
